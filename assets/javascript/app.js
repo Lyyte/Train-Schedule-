@@ -7,11 +7,11 @@ function displayTime() {
 $(document).ready(function() {
     displayTime();
     var config = {
-    apiKey: "AIzaSyBb3pWojzBMwl_9m1e7be0fzA45pLceDPQ",
-    authDomain: "train-schedule-hw-94645.firebaseapp.com",
-    databaseURL: "https://train-schedule-hw-94645.firebaseio.com",
-    storageBucket: "train-schedule-hw-94645.appspot.com",
-  };
+        apiKey: "AIzaSyA_QypGPkcjPtylRDscf7-HQl8ribnFeIs",
+        authDomain: "time-sheet-55009.firebaseapp.com",
+        databaseURL: "https://time-sheet-55009.firebaseio.com",
+        storageBucket: "time-sheet-55009.appspot.com"
+      };
   
   firebase.initializeApp(config);
 
@@ -35,7 +35,7 @@ $(document).ready(function() {
 
     console.log(traininfo.name);
     console.log(traininfo.destin);
-
+    console.log(database);
 
     // var newRow = $("<tr>").append(
     //     $("<td>").text(trainname),
@@ -44,4 +44,23 @@ $(document).ready(function() {
     //     $("<td>").text(freq),
 
   });
+
+  database.ref().on("child_added", function(childSnapshot) {
+
+    var trainname = childSnapshot.val().name;
+    console.log(trainname);
+
+    var newRow = $("<tr>").append(
+    $("<td>").text(trainname));
+    $("#train-table > tbody").append(newRow)
+
+
+
+
+
+  });
+
+
+
+
   });
