@@ -37,9 +37,9 @@ $(document).ready(function() {
 
     database.ref().push(traininfo);
 
-    console.log(traininfo.name);
-    console.log(traininfo.destin);
-    console.log(database);
+    // console.log(traininfo.name);
+    // console.log(traininfo.destin);
+    // console.log(database);
 
   });
 
@@ -50,11 +50,18 @@ $(document).ready(function() {
    var dfirsttrain = childSnapShot.val().firsttrain;
    var dfrequency = childSnapShot.val().frequency;
 
-    var currentmomment = moment();
-    console.log("current moment: " + currentmomment);
+   var timedifftillnow = moment().diff(moment(dfirsttrain), "minutes");
+   var timeremainder = timedifftillnow % dfrequency;
+   var timelefttillnext = dfrequency - timeremainder;
+   var timeofnext = moment().add(timelefttillnext, "minutes");
+   var timeofnextT = moment(timeofnext).format("HH:mm A");
 
+    console.log(timedifftillnow);
+    console.log(timeremainder);
+    console.log(timelefttillnext);
+    console.log(timeofnext);
+    console.log(timeofnextT);
 
   });
-
 
   });
