@@ -25,7 +25,7 @@ $(document).ready(function() {
     event.preventDefault();
     var trainname = $('#train-name-input').val().trim();
     var destination = $('#destination-input').val().trim();
-    var first = $('#first-input').val().trim();
+    var first = moment($("#first-input").val().trim(), "HH:mm").format();
     var freq = $('#frequency-input').val().trim();
 
     var traininfo = {
@@ -45,10 +45,10 @@ $(document).ready(function() {
 
   database.ref().on("child_added", function(childSnapShot) {
 
-    dtrainname = childSnapShot.val().name;
-    ddestination = childSnapShot.val().destin;
-    dfirsttrain = childSnapShot.val().firsttrain;
-    dfrequency = childSnapShot.val().frequency;
+   var dtrainname = childSnapShot.val().name;
+   var ddestination = childSnapShot.val().destin;
+   var dfirsttrain = childSnapShot.val().firsttrain;
+   var dfrequency = childSnapShot.val().frequency;
 
     var currentmomment = moment();
     console.log("current moment: " + currentmomment);
