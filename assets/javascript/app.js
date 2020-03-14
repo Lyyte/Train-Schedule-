@@ -45,7 +45,14 @@ $(document).ready(function() {
 
   database.ref().on("child_added", function(childSnapShot) {
 
-//restarting
+    dtrainname = childSnapShot.val().name;
+    ddestination = childSnapShot.val().destin;
+    dfirsttrain = childSnapShot.val().firsttrain;
+    dfrequency = childSnapShot.val().frequency;
+
+    var currentmomment = moment();
+    console.log("current moment: " + currentmomment);
+
 
   });
 
