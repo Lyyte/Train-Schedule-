@@ -50,9 +50,29 @@ $(document).ready(function() {
     var trainname = childSnapshot.val().name;
     console.log(trainname);
 
+    var traindestin = childSnapshot.val().destin;
+    console.log(traindestin);
+
+    var trainfirst = childSnapshot.val().firsttrain;
+    console.log(trainfirst);
+
+    var trainfreq = childSnapshot.val().frequency;
+    console.log(trainfreq);
+
     var newRow = $("<tr>").append(
     $("<td>").text(trainname));
-    $("#train-table > tbody").append(newRow)
+    var newRow1 = $("<tr>").append(
+    $("<td>").text(traindestin));
+    var newRow3 = $("<tr>").append(
+    $("<td>").text(trainfirst));
+    var newRow2 = $("<tr>").append(
+    $("<td>").text(trainfreq));
+    $("#train-table > tbody").append(newRow);
+    $("#train-table > tbody").append(newRow1);
+    $("#train-table > tbody").append(newRow2);
+    $("#train-table > tbody").append(newRow3);
+
+    
 
 
 
