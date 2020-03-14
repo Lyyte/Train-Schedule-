@@ -46,22 +46,43 @@ $(document).ready(function() {
   database.ref().on("child_added", function(childSnapshot) {
 
     var trainname = childSnapshot.val().name;
-    console.log(trainname);
+    console.log("train name " + trainname);
 
     var traindestin = childSnapshot.val().destin;
-    console.log(traindestin);
+    console.log("traindestin " + traindestin);
 
     var trainfirst = childSnapshot.val().firsttrain;
-    console.log(trainfirst);
+    console.log("first train " + trainfirst);
 
     var trainfreq = childSnapshot.val().frequency;
-    console.log(trainfreq);
+    console.log("frequency" + trainfreq);
+
+    var firsttime = moment(trainfirst, "hh:mm").subtract(1, "years");
+    console.log("firsttime " + firsttime);
+
+    var current = moment();
+
+    var timediff = moment().diff(moment(trainfirst), "minutes");
+    console.log("time diff " + timediff);
+
+    var timeapart = timediff % trainfreq;
+    console.log("time apart " + timeapart);
+
+    var timeleft = trainfreq - timeapart;
+    console.log("time left " + timeleft);
+
+    var nexttrain = moment().add(timeapart, "minutes").format("hh:mm");
+    console.log("next train " + nexttrain);
 
 
 
 
 
-    var newRow = $("<tr>").append(
+
+
+
+
+    // var newRow = $("<tr>").append(
     // $("<td>").text(trainname));
     // var newRow1 = $("<tr>").append(
     // $("<td>").text(traindestin));
