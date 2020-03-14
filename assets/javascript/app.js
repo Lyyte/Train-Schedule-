@@ -43,59 +43,9 @@ $(document).ready(function() {
 
   });
 
-  database.ref().on("child_added", function(childSnapshot) {
+  database.ref().on("child_added", function(childSnapShot) {
 
-    var trainname = childSnapshot.val().name;
-    console.log("train name " + trainname);
-
-    var traindestin = childSnapshot.val().destin;
-    console.log("traindestin " + traindestin);
-
-    var trainfirst = childSnapshot.val().firsttrain;
-    console.log("first train " + trainfirst);
-
-    var trainfreq = childSnapshot.val().frequency;
-    console.log("frequency" + trainfreq);
-
-    var firsttime = moment(trainfirst, "hh:mm").subtract(1, "years");
-    console.log("firsttime " + firsttime);
-
-    var current = moment();
-
-    var timediff = moment().diff(moment(trainfirst), "minutes");
-    console.log("time diff " + timediff);
-
-    var timeapart = timediff % trainfreq;
-    console.log("time apart " + timeapart);
-
-    var timeleft = trainfreq - timeapart;
-    console.log("time left " + timeleft);
-
-    var nexttrain = moment().add(timeapart, "minutes").format("hh:mm");
-    console.log("next train " + nexttrain);
-
-
-
-
-
-
-
-
-
-    // var newRow = $("<tr>").append(
-    // $("<td>").text(trainname));
-    // var newRow1 = $("<tr>").append(
-    // $("<td>").text(traindestin));
-    // var newRow3 = $("<tr>").append(
-    // $("<td>").text(trainfirst));
-    // var newRow2 = $("<tr>").append(
-    // $("<td>").text(trainfreq));
-    // $("#train-table > tbody").append(newRow);
-    // $("#train-table > tbody").append(newRow1);
-    // $("#train-table > tbody").append(newRow2);
-    // $("#train-table > tbody").append(newRow3);
-
-    
+//restarting
 
   });
 
