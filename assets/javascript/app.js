@@ -56,11 +56,21 @@ $(document).ready(function() {
    var timeofnext = moment().add(timelefttillnext, "minutes");
    var timeofnextT = moment(timeofnext).format("HH:mm A");
 
-    console.log(timedifftillnow);
-    console.log(timeremainder);
-    console.log(timelefttillnext);
-    console.log(timeofnext);
-    console.log(timeofnextT);
+    // console.log(timedifftillnow);
+    // console.log(timeremainder);
+    // console.log(timelefttillnext);
+    // console.log(timeofnext);
+    // console.log(timeofnextT);
+
+    var newRow = $("<tr>").append(
+        $("<th>").text(dtrainname),
+        $("<th>").text(ddestination),
+        $("<th>").text(dfrequency),
+        $("<th>").text(timeofnextT),
+        $("<th>").text(timelefttillnext),
+        );
+            
+    $("#train-table").append(newRow);
 
   });
 
